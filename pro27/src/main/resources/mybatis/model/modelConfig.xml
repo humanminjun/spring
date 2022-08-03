@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<typeAliases>
+	<typeAliases> <!-- memberVO 라는 걸호출하면 type="~~"을 불러와라 -->
 		<typeAlias type="com.myspring.pro27.member.vo.MemberVO"  alias="memberVO" />
 	</typeAliases>
 </configuration>
