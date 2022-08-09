@@ -6,6 +6,8 @@
 <%
   request.setCharacterEncoding("UTF-8");
 %>    
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
+<!-- 파일위치를 정의하는 contextPath 외우자 -->
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-   <h1>메인 페이지입니다!!</h1><br>
-   <h1>김재우 작업중....</h1>
+   <a href="${contextPath}/member/listMembers.do"  class="no-underline">회원목록 보기</a><br>
+   <a href="#"  class="no-underline">진료 예약</a><br>
 </body>
 </html>

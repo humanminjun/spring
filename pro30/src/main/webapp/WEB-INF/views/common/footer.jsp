@@ -1,3 +1,5 @@
+<!-- common 폴더는 frame이다. -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"   isELIgnored="false"
  %>
@@ -9,7 +11,7 @@
   <title>하단 부분</title>
   <style>
     p {
-     font-size:20px;
+     font-size:12px;
       text-align:center;
     }
   </style>

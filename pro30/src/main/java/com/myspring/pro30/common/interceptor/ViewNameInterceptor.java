@@ -2,16 +2,18 @@ package com.myspring.pro30.common.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class ViewNameInterceptor extends HandlerInterceptorAdapter {
+public class ViewNameInterceptor extends HandlerInterceptorAdapter{
+	
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
 		try {
 			String viewName = getViewName(request);
 			request.setAttribute("viewName", viewName);
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return true;
@@ -26,7 +28,7 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 	}
-
+	
 	private String getViewName(HttpServletRequest request) throws Exception {
 		String contextPath = request.getContextPath();
 		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
@@ -48,13 +50,14 @@ public class ViewNameInterceptor extends HandlerInterceptorAdapter {
 			end = uri.length();
 		}
 
-		String fileName = uri.substring(begin, end);
-		if (fileName.indexOf(".") != -1) {
-			fileName = fileName.substring(0, fileName.lastIndexOf("."));
+		String viewName = uri.substring(begin, end);
+		if (viewName.indexOf(".") != -1) {
+			viewName = viewName.substring(0, viewName.lastIndexOf("."));
 		}
-		if (fileName.lastIndexOf("/") != -1) {
-			fileName = fileName.substring(fileName.lastIndexOf("/", 1), fileName.length());
+		if (viewName.lastIndexOf("/") != -1) {
+			viewName = viewName.substring(viewName.lastIndexOf("/", 1), viewName.length());
 		}
-		return fileName;
+		return viewName;
 	}
+	
 }
